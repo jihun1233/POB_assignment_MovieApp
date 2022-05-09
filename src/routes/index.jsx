@@ -1,12 +1,13 @@
 import styles from './Routes.module.scss'
-// import TodoList from './TodoList'
+
 import Weather from './Weathers'
+import PageRouter from './PageRouter'
 
 const App = () => {
   return (
     <div className={styles.app}>
       {/* <TodoList /> */}
-      <Weather />
+      <PageRouter />
     </div>
   )
 }
