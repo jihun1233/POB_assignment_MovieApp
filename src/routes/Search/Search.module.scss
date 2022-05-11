@@ -1,0 +1,33 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
+.searchPageBox {
+  @include flexbox.flexbox(start, center);
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  color: colors.$APP_FONT;
+
+  form {
+    @include flexbox.flexbox(end, center);
+    width: 100%;
+    padding: 0 30px 30px;
+
+    input {
+      flex-grow: 1;
+      height: 25px;
+      color: colors.$APP_FONT;
+      border-bottom: 1px solid hidden;
+
+      &:focus {
+        border-bottom: 1px solid colors.$WHITE;
+      }
+    }
+  }
+
+  .movieListBox {
+    height: auto;
+    overflow: scroll;
+  }
+}
