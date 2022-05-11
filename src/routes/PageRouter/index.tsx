@@ -9,8 +9,8 @@ const PageRouter = () => {
     <div className={styles.container}>
       <main>
         <Routes>
-          <Route path="/" element={<Search />} />
-          <Route path="/bookmark" element={<Bookmark />} />
+          <Route path='/' element={<Search />} />
+          <Route path='/bookmark' element={<Bookmark />} />
         </Routes>
       </main>
       <footer>
