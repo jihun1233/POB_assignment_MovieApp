@@ -1,0 +1,35 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
+.movieListBox {
+  @include flexbox.flexbox(start, center);
+  flex-direction: column;
+  // test
+  button {
+    background-color: colors.$WHITE;
+  }
+
+  dl {
+    @include flexbox.flexbox(start, start);
+    width: 100%;
+
+    + dl {
+      margin-top: 20px;
+    }
+  }
+
+  dt {
+    display: none;
+  }
+
+  .infoBox {
+    @include flexbox.flexbox(start ,start);
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .poster {
+    width: 100px;
+    height: auto;
+  }
+}
