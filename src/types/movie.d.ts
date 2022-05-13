@@ -1,6 +1,6 @@
 export interface IMovie {
   Title: string
-  Year: string
+  Year: number
   imdbID: string
   Type: string
   Poster: string
@@ -8,6 +8,7 @@ export interface IMovie {
 
 export interface IMovieResponse {
   Search: IMovie[]
-  totalResults: string
-  Response: string
+  totalResults: number
+  Response: 'True' | 'False' | 'None'
+  Error?: string
 }
