@@ -28,8 +28,14 @@
     margin: 10px;
   }
 
-  .poster {
-    width: 100px;
-    height: auto;
+  .posterBox {
+    @include flexbox.flexbox(center, center);
+    height: 150px;
+    overflow: hidden;
+
+    .poster {
+      width: 100px;
+      height: auto;
+    }
   }
 }

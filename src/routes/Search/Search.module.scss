@@ -13,6 +13,7 @@
     @include flexbox.flexbox(end, center);
     width: 100%;
     padding: 0 30px 30px;
+    color: colors.$APP_FONT;
 
     input {
       flex-grow: 1;
@@ -23,6 +24,11 @@
       &:focus {
         border-bottom: 1px solid colors.$WHITE;
       }
+    }
+
+    button {
+      font-size: 20px;
+      color: colors.$APP_FONT;
     }
   }
 
