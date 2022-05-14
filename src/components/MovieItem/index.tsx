@@ -1,17 +1,20 @@
 import { useRecoil } from 'hooks/state'
 import { ForwardedRef, forwardRef } from 'react'
-import { bookmarkListState, bookmarkModalState } from 'states/movie'
+import { bookmarkModalState } from 'states/movie'
 import { IMovie } from 'types/movie'
-import styles from './Item.module.scss'
+import { AiFillStar } from 'react-icons/ai'
+import { cx } from 'styles'
+import styles from './MovieItem.module.scss'
 
 interface Props {
   movie: IMovie
+  isBookmarked: boolean
 }
 
-const Item = forwardRef(({ movie }: Props, ref: ForwardedRef<HTMLLIElement>): JSX.Element => {
+const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<HTMLLIElement>): JSX.Element => {
   const [, setBookmarkModal] = useRecoil(bookmarkModalState)
   const handleClick = () => {
-    setBookmarkModal({ isOpen: true, movie })
+    setBookmarkModal({ isOpen: true, movie, isBookmarked })
   }
 
   return (
@@ -24,21 +27,22 @@ const Item = forwardRef(({ movie }: Props, ref: ForwardedRef<HTMLLIElement>): JS
         <div className={styles.infoBox}>
           <dt>제목</dt>
           <dd>
-            <p>{movie.Title}</p>
+            <p className={styles.title}>{movie.Title}</p>
           </dd>
-          <dt>출시일</dt>
+          <dt>개봉 연도</dt>
           <dd>
             <p>{movie.Year}</p>
           </dd>
-          <dt>타입</dt>
+          <dt>유형</dt>
           <dd>
             <p>{movie.Type}</p>
           </dd>
         </div>
+        <AiFillStar className={cx(styles.bookmarkIcon, { [styles.active]: isBookmarked })} />
       </dl>
     </li>
   )
 })
 
-Item.displayName = 'Item'
-export default Item
+MovieItem.displayName = 'MovieItem'
+export default MovieItem
