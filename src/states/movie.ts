@@ -1,5 +1,8 @@
 import { atom } from 'recoil'
 import { IMovie, IMovieResponse } from 'types/movie'
+import { recoilPersist } from 'recoil-persist'
+
+const { persistAtom } = recoilPersist()
 
 interface IMovieState extends IMovieResponse {
   currentMovieList: IMovie[]
@@ -25,6 +28,7 @@ export const movieListState = atom<IMovieState>({
 export const bookmarkListState = atom<IBookmark[]>({
   key: '#bookmarkListState',
   default: [],
+  effects_UNSTABLE: [persistAtom],
 })
 
 export const bookmarkModalState = atom<IBookmarkModalState>({
