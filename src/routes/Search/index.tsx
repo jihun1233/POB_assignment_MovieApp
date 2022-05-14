@@ -53,7 +53,7 @@ const Search = (): JSX.Element => {
           <BsSearch />
         </button>
       </form>
-      <section className={styles.movieListBox}>
+      <section>
         <MovieList />
       </section>
     </div>
