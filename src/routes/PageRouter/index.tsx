@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Search from 'routes/Search'
 import Bookmark from 'routes/Bookmark'
 import GNB from './GNB'
+import BookmarkModal from 'routes/Modal/BookmarkModal'
 
 const PageRouter = () => {
   return (
@@ -18,6 +19,7 @@ const PageRouter = () => {
       <footer>
         <GNB />
       </footer>
+      <BookmarkModal />
     </div>
   )
 }
