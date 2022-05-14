@@ -2,40 +2,9 @@
 @use '/src/styles/constants/colors';
 
 .movieListBox {
-  @include flexbox.flexbox(start, center);
-  flex-direction: column;
-  // test
-  button {
-    background-color: colors.$WHITE;
-  }
-
-  dl {
-    @include flexbox.flexbox(start, start);
-    width: 100%;
-
-    + dl {
-      margin-top: 20px;
-    }
-  }
-
-  dt {
-    display: none;
-  }
-
-  .infoBox {
-    @include flexbox.flexbox(start ,start);
+  ul {
+    @include flexbox.flexbox(start, center);
     flex-direction: column;
-    margin: 10px;
-  }
-
-  .posterBox {
-    @include flexbox.flexbox(center, center);
-    height: 150px;
-    overflow: hidden;
-
-    .poster {
-      width: 100px;
-      height: auto;
-    }
+    width: 100%;
   }
 }

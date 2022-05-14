@@ -4,6 +4,7 @@ import { IMovie } from 'types/movie'
 import { useIntersection } from 'react-use'
 import { useRecoil } from 'hooks/state'
 import { movieListState } from 'states/movie'
+import Item from './Item'
 
 interface Props {}
 
@@ -13,7 +14,6 @@ const MovieList = ({}: Props): JSX.Element => {
   const [movies, setMovies] = useRecoil(movieListState)
   const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
-    console.log(intersection)
     const getNextPage = () => {
       setIsLoading(true)
       setMovies((prev) => ({ ...prev, currentMovieList: [...movies.currentMovieList, ...DUMMY_MOVIE_DATAS] }))
@@ -24,31 +24,20 @@ const MovieList = ({}: Props): JSX.Element => {
     if (intersection?.isIntersecting && !isLoading) {
       console.log(intersection)
 
-      getNextPage()
+      // getNextPage()
     }
   }, [intersection, isLoading, movies.currentMovieList, setMovies])
   return (
-    <ul className={styles.movieListBox}>
-      {movies.currentMovieList.map((movie, index) => {
-        const key = `movie-item-${index}`
-        return (
-          <dl key={key} ref={movies.currentMovieList.length - 1 === index ? intersectionRef : null}>
-            <dt>포스터</dt>
-            <dd className={styles.posterBox}>
-              <img className={styles.poster} src={movie.Poster} alt={`${movie.Title} Poster`} />
-            </dd>
-            <div className={styles.infoBox}>
-              <dt>제목</dt>
-              <dd>{movie.Title}</dd>
-              <dt>출시일</dt>
-              <dd>{movie.Year}</dd>
-              <dt>타입</dt>
-              <dd>{movie.Type}</dd>
-            </div>
-          </dl>
-        )
-      })}
-    </ul>
+    <div className={styles.movieListBox}>
+      <ul>
+        {movies.currentMovieList.map((movie, index) => {
+          const key = `movie-item-${index}`
+          return (
+            <Item key={key} movie={movie} ref={movies.currentMovieList.length - 1 === index ? intersectionRef : null} />
+          )
+        })}
+      </ul>
+    </div>
   )
 }
 
