@@ -3,8 +3,8 @@ import styles from './MovieList.module.scss'
 import { IMovie } from 'types/movie'
 import { useIntersection } from 'react-use'
 import { useRecoil } from 'hooks/state'
-import { movieListState } from 'states/movie'
-import Item from './Item'
+import { bookmarkListState, movieListState } from 'states/movie'
+import MovieItem from 'components/MovieItem'
 
 interface Props {}
 
@@ -12,7 +12,11 @@ const MovieList = ({}: Props): JSX.Element => {
   const intersectionRef = useRef(null)
   const intersection = useIntersection(intersectionRef, { root: null, rootMargin: '0px', threshold: 0.5 })
   const [movies, setMovies] = useRecoil(movieListState)
+  const [bookmarks] = useRecoil(bookmarkListState)
   const [isLoading, setIsLoading] = useState(false)
+  const getIsBookmarked = (id: string) => {
+    return bookmarks.some((movie) => movie.imdbID === id)
+  }
   useEffect(() => {
     const getNextPage = () => {
       setIsLoading(true)
@@ -33,7 +37,12 @@ const MovieList = ({}: Props): JSX.Element => {
         {movies.currentMovieList.map((movie, index) => {
           const key = `movie-item-${index}`
           return (
-            <Item key={key} movie={movie} ref={movies.currentMovieList.length - 1 === index ? intersectionRef : null} />
+            <MovieItem
+              key={key}
+              isBookmarked={getIsBookmarked(movie.imdbID)}
+              movie={movie}
+              ref={movies.currentMovieList.length - 1 === index ? intersectionRef : null}
+            />
           )
         })}
       </ul>
