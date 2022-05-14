@@ -1,0 +1,16 @@
+@use '/src/styles/mixins/flexbox';
+
+.bookmark {
+  @include flexbox.flexbox(start,center);
+  flex-direction: column;
+  height: 100%;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .bookmarkListBox {
+    overflow: scroll;
+  }
+}
