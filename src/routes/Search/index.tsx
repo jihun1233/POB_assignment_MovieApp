@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, Suspense, useCallback, useEffect, useState } fr
 import { BsSearch } from 'react-icons/bs'
 import { getMovieApi } from 'services/movie'
 import { movieListState } from 'states/movie'
-import MovieList from 'routes/MovieList'
+import MovieList from 'routes/Search/MovieList'
 import { useRecoil } from 'hooks/state'
 import styles from './Search.module.scss'
 
