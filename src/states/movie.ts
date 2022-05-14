@@ -13,6 +13,7 @@ interface IBookmark extends IMovie {
 
 interface IBookmarkModalState {
   isOpen: boolean
+  isBookmarked: boolean
   movie: IMovie
 }
 
@@ -30,6 +31,7 @@ export const bookmarkModalState = atom<IBookmarkModalState>({
   key: '#bookmarkModalState',
   default: {
     isOpen: false,
+    isBookmarked: false,
     movie: { Poster: '', Title: '', Type: '', Year: '', imdbID: '' },
   },
 })
