@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { cx } from 'styles'
 import styles from './GNB.module.scss'

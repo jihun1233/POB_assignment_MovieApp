@@ -2,7 +2,7 @@
 @use '/src/styles/constants/colors';
 
 .movieListBox {
-  height: auto;
+  height: 100%;
   overflow: scroll;
 
   ul {
