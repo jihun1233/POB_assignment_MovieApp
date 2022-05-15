@@ -1,4 +1,6 @@
+import { SyntheticEvent } from 'react'
 import { IMovie } from 'types/movie'
+import posterNotFound from 'assets/posterNotFound.png'
 import styles from './Item.module.scss'
 
 interface Props {
@@ -7,9 +9,14 @@ interface Props {
 
 const Item = ({ movie }: Props): JSX.Element => {
   const { Poster, Title, Type, Year } = movie
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    const { currentTarget } = e
+    currentTarget.onerror = null
+    currentTarget.src = posterNotFound
+  }
   return (
     <div className={styles.modalItem}>
-      <img className={styles.poster} src={Poster} alt={`${Title} Poster`} />
+      <img className={styles.poster} src={Poster} alt={`${Title} Poster`} onError={handleImgError} />
       <div className={styles.info}>
         <dl>
           <dt>제목</dt>

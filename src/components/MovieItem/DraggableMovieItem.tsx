@@ -1,9 +1,10 @@
+import { DragEvent, ForwardedRef, forwardRef, MouseEvent, SyntheticEvent, useEffect, useState } from 'react'
 import { useRecoil } from 'hooks/state'
-import { DragEvent, ForwardedRef, forwardRef, MouseEvent, useEffect, useState } from 'react'
 import { bookmarkListState, bookmarkModalState } from 'states/movie'
 import { IMovie } from 'types/movie'
 import { AiFillStar } from 'react-icons/ai'
 import { cx } from 'styles'
+import posterNotFound from 'assets/posterNotFound.png'
 import styles from './MovieItem.module.scss'
 
 interface Props {
@@ -51,6 +52,11 @@ const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<
     e.preventDefault()
     setIsDragOver(false)
   }
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    const { currentTarget } = e
+    currentTarget.onerror = null
+    currentTarget.src = posterNotFound
+  }
   useEffect(() => {
     setIsDragOver(false)
   }, [bookmarks])
@@ -70,7 +76,7 @@ const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<
       <dl>
         <dt>포스터</dt>
         <dd className={styles.posterBox}>
-          <img className={styles.poster} src={movie.Poster} alt={`${movie.Title} Poster`} />
+          <img className={styles.poster} src={movie.Poster} alt={`${movie.Title} Poster`} onError={handleImgError} />
         </dd>
         <div className={styles.infoBox}>
           <dt>제목</dt>
