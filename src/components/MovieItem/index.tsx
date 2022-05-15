@@ -13,10 +13,10 @@ interface Props {
 
 const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<HTMLLIElement>): JSX.Element => {
   const [, setBookmarkModal] = useRecoil(bookmarkModalState)
+
   const handleClick = () => {
     setBookmarkModal({ isOpen: true, movie, isBookmarked })
   }
-
   return (
     <li className={styles.movieItem} ref={ref} role='row' onClick={handleClick}>
       <dl>

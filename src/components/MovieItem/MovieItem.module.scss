@@ -7,6 +7,17 @@
   height: 200px;
   margin: 10px 0;
   overflow: hidden;
+  cursor: pointer;
+
+  & > * {
+    // drag blink 방지
+    pointer-events: none;
+  }
+
+  &.dragOver {
+    background-color: colors.$BOOKMARK_DRAG_BACKGROUND;
+    transition: 0.5s;
+  }
 
   &:hover {
     transition: 0.2s;
@@ -40,6 +51,7 @@
         /* stylelint-disable-next-line value-no-vendor-prefix */
         display: -webkit-box;
         overflow: hidden;
+        line-height: normal;
         white-space: normal;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
