@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+# 영화 검색 어플리케이션
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 구현 사항
+### 기본 화면
 
-## Available Scripts
+검색 화면이 먼저 나오고 빈 검색화면에서는 검색결과가 없다는 메시지 출력
 
-In the project directory, you can run:
+하단의 검색 즐겨찾기 버튼으로 페이지를 이동할 수 있다
 
-### `yarn start`
+ ![image](https://user-images.githubusercontent.com/56039591/168459504-e57f1bef-5f40-4cd0-a4ca-bca5205a7a3c.png)
+ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 검색 페이지
+검색어 입력하여 검색 -> 검색결과로 받아온 영화목록 출력.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+스크롤하여 페이지의 마지막 리스트가 화면에 보이면 다음 페이지를 출력
 
-### `yarn test`
+![movie_search](https://user-images.githubusercontent.com/56039591/168459683-3f7239cf-179d-44c4-b6cc-346c8a1c8aa2.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 즐겨찾기 추가/제거 모달
+리스트의 영화를 클릭하면 모달 생성
 
-### `yarn build`
+즐겨찾기에 추가하거나 즐겨찾기된 영화라면 즐겨찾기에서 제거 할 수 있다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![movie_addBookmark](https://user-images.githubusercontent.com/56039591/168459811-bdcaed4a-dfc0-4cb7-9112-1d2d4ab6692a.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 즐겨찾기 페이지
 
-### `yarn eject`
+즐겨찾기에 추가된 영화들 목록을 확인할 수 있다. localStorage에 저장되어 다시 실행해도 유지된다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+드래그하여 순서를 바꿀 수 있다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![movie_bookmarkPage](https://user-images.githubusercontent.com/56039591/168459884-60a7315e-dc0c-495a-8091-dfa927cc9071.gif)
