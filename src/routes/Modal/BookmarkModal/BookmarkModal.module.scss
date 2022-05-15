@@ -1,0 +1,64 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+
+.modalBox {
+  @include position.middleBox;
+  @include flexbox.flexbox(center, center);
+  width: 360px;
+  height: 720px;
+  overflow: scroll;
+  background: none;
+  border-radius: 15px;
+
+  &::before {
+    @include position.middleBox;
+    z-index: levels.$MODAL_BACKGROUND;
+    width: 360px;
+    height: 1440px;
+    pointer-events: none;
+    content: '';
+    background-color: colors.$MODAL_BACKGROUND;
+    opacity: 0.8;
+  }
+
+  .modalContent {
+    z-index: levels.$MODAL_CONTENT;
+    width: 250px;
+    height: auto;
+    overflow: scroll;
+    color: colors.$APP_FONT;
+    background-color: colors.$MODAL_BACKGROUND;
+    border-radius: 15px;
+  }
+
+  .buttonBox {
+    width: 100%;
+    @include flexbox.flexbox(between, center);
+
+    button {
+      height: 40px;
+      padding: 0 10px;
+      font-size: 16px;
+      color: colors.$APP_FONT;
+
+      &.closeButton {
+        flex-grow: 1;
+        background-color: colors.$GRAY6;
+      }
+
+      &.add {
+        background-color: colors.$BUTTON_ADD;
+      }
+
+      &.remove {
+        background-color: colors.$BUTTON_REMOVE;
+      }
+
+      &.bookmarkButton {
+        flex-grow: 1;
+      }
+    }
+  }
+}

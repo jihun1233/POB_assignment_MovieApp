@@ -1,0 +1,13 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
+.movieListBox {
+  height: 100%;
+  overflow: scroll;
+
+  ul {
+    @include flexbox.flexbox(start, center);
+    flex-direction: column;
+    width: 100%;
+  }
+}

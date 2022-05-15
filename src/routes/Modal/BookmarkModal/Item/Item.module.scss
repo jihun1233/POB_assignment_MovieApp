@@ -1,0 +1,37 @@
+@use '/src/styles/mixins/flexbox';
+
+.modalItem {
+  dl {
+    width: 100%;
+    margin: 20px;
+  }
+
+  dt {
+    display: none;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .details {
+    width: 100%;
+
+    p {
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  .poster {
+    width: 250px;
+    height: auto;
+  }
+
+  .info {
+    width: 100%;
+    height: auto;
+    @include flexbox.flexbox(start, center);
+  }
+}
