@@ -8,7 +8,7 @@
   @include flexbox.flexbox(center, center);
   width: 360px;
   height: 720px;
-  overflow: hidden;
+  overflow: scroll;
   background: none;
   border-radius: 15px;
 
@@ -16,7 +16,7 @@
     @include position.middleBox;
     z-index: levels.$MODAL_BACKGROUND;
     width: 360px;
-    height: 720px;
+    height: 1440px;
     pointer-events: none;
     content: '';
     background-color: colors.$MODAL_BACKGROUND;
@@ -27,7 +27,7 @@
     z-index: levels.$MODAL_CONTENT;
     width: 250px;
     height: auto;
-    overflow: hidden;
+    overflow: scroll;
     color: colors.$APP_FONT;
     background-color: colors.$MODAL_BACKGROUND;
     border-radius: 15px;
@@ -42,7 +42,6 @@
       padding: 0 10px;
       font-size: 16px;
       color: colors.$APP_FONT;
-      border-radius: 10px;
 
       &.closeButton {
         flex-grow: 1;

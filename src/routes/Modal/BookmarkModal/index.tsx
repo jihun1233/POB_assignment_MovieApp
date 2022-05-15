@@ -8,7 +8,7 @@ import { useRef } from 'react'
 import Item from './Item/Item'
 
 const BookmarkModal = (): JSX.Element => {
-  const [bookmarkModal, setBookmarkModal, resetBookmarkModal] = useRecoil(bookmarkModalState)
+  const [bookmarkModal, , resetBookmarkModal] = useRecoil(bookmarkModalState)
   const [bookmarks, setBookmarks] = useRecoil(bookmarkListState)
   const { isOpen, isBookmarked, movie } = bookmarkModal
   const modalRef = useRef(null)
