@@ -7,9 +7,7 @@ import { useInView } from 'react-intersection-observer'
 import { getMovieApi } from 'services/movie'
 
 const MovieList = (): JSX.Element => {
-  // const intersectionRef = useRef(null)
   const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
-  // const intersection = useIntersection(intersectionRef, { root: null, rootMargin: '0px', threshold: 0.5 })
   const [movies, setMovies] = useRecoil(movieListState)
   const { page, keyword, totalResults } = movies
   const [bookmarks] = useRecoil(bookmarkListState)

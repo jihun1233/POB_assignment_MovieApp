@@ -9,18 +9,14 @@ import styles from './Search.module.scss'
 const Search = (): JSX.Element => {
   const [movies, setMovies, resetMovies] = useRecoil(movieListState)
   const [searchKeyword, setSearchKeyword] = useState('')
-  // 없으면 검색 x, 너무많은 결과 에러에 대응
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value)
   }
   const getMovieData = () => {
     resetMovies()
     getMovieApi({ s: searchKeyword, page: 1 }).then((res) => {
-      // if (res.Response === 'True') {
       setMovies({ ...res, page: 1, currentMovieList: res.Search, keyword: searchKeyword })
-      // } else {
-      //   resetMovies()
-      // }
     })
   }
   const handleSubmit = (e: FormEvent) => {
