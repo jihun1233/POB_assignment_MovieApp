@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { cx } from 'styles'
 import styles from './GNB.module.scss'
 
-const GNB = (): JSX.Element => {
+const GNB = () => {
   const { pathname } = useLocation()
   return (
     <nav className={styles.gnb}>
