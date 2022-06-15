@@ -6,7 +6,7 @@ import MovieList from 'routes/Search/MovieList'
 import { useRecoil } from 'hooks/state'
 import styles from './Search.module.scss'
 
-const Search = (): JSX.Element => {
+const Search = () => {
   const [movies, setMovies, resetMovies] = useRecoil(movieListState)
   const [searchKeyword, setSearchKeyword] = useState('')
 

@@ -12,7 +12,7 @@ interface Props {
   isBookmarked: boolean
 }
 
-const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<HTMLLIElement>): JSX.Element => {
+const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<HTMLLIElement>) => {
   const [, setBookmarkModal] = useRecoil(bookmarkModalState)
 
   const handleClick = () => {

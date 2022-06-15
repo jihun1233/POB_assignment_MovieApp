@@ -6,7 +6,7 @@ import MovieItem from 'components/MovieItem'
 import { useInView } from 'react-intersection-observer'
 import { getMovieApi } from 'services/movie'
 
-const MovieList = (): JSX.Element => {
+const MovieList = () => {
   const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
   const [movies, setMovies] = useRecoil(movieListState)
   const { page, keyword, totalResults } = movies
