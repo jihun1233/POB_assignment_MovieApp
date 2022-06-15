@@ -1,11 +1,12 @@
-import { useRecoil } from 'hooks/state'
+import posterNotFound from 'assets/posterNotFound.png'
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react'
+import { useRecoil } from 'hooks/state'
 import { bookmarkModalState } from 'states/movie'
 import { IMovie } from 'types/movie'
 import { AiFillStar } from 'react-icons/ai'
 import { cx } from 'styles'
+
 import styles from './MovieItem.module.scss'
-import posterNotFound from 'assets/posterNotFound.png'
 
 interface Props {
   movie: IMovie

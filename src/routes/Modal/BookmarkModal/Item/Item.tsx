@@ -1,6 +1,7 @@
+import posterNotFound from 'assets/posterNotFound.png'
 import { SyntheticEvent } from 'react'
 import { IMovie } from 'types/movie'
-import posterNotFound from 'assets/posterNotFound.png'
+
 import styles from './Item.module.scss'
 
 interface Props {

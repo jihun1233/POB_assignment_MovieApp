@@ -1,9 +1,10 @@
+import MovieList from 'routes/Search/MovieList'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { getMovieApi } from 'services/movie'
 import { movieListState } from 'states/movie'
-import MovieList from 'routes/Search/MovieList'
 import { useRecoil } from 'hooks/state'
+
 import styles from './Search.module.scss'
 
 const Search = () => {

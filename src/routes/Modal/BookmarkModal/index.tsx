@@ -1,11 +1,12 @@
-import { useRecoil } from 'hooks/state'
 import { bookmarkListState, bookmarkModalState } from 'states/movie'
+import { useRef } from 'react'
+import { useRecoil } from 'hooks/state'
 import { useClickAway } from 'react-use'
 import { cx } from 'styles'
+
 import styles from './BookmarkModal.module.scss'
-import Portal from '../Portal'
-import { useRef } from 'react'
 import Item from './Item/Item'
+import Portal from '../Portal'
 
 const BookmarkModal = () => {
   const [bookmarkModal, , resetBookmarkModal] = useRecoil(bookmarkModalState)
