@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
-import styles from './MovieList.module.scss'
-import { useRecoil } from 'hooks/state'
-import { bookmarkListState, movieListState } from 'states/movie'
 import MovieItem from 'components/MovieItem'
+import { useEffect, useState } from 'react'
+import { bookmarkListState, movieListState } from 'states/movie'
+import { useRecoil } from 'hooks/state'
 import { useInView } from 'react-intersection-observer'
 import { getMovieApi } from 'services/movie'
 
-const MovieList = (): JSX.Element => {
+import styles from './MovieList.module.scss'
+
+const MovieList = () => {
   const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
   const [movies, setMovies] = useRecoil(movieListState)
   const { page, keyword, totalResults } = movies

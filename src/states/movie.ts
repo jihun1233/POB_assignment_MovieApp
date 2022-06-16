@@ -1,5 +1,5 @@
-import { atom } from 'recoil'
 import { IBookmark, IBookmarkModalState, IMovieState } from 'types/movie'
+import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
 const { persistAtom } = recoilPersist()

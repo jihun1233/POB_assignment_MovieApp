@@ -1,9 +1,10 @@
 import DraggableMovieItem from 'components/MovieItem/DraggableMovieItem'
 import { useRecoil } from 'hooks/state'
 import { bookmarkListState } from 'states/movie'
+
 import styles from './Bookmark.module.scss'
 
-const Bookmark = (): JSX.Element => {
+const Bookmark = () => {
   const [bookmarks] = useRecoil(bookmarkListState)
   const bookmarksSorted = [...bookmarks].sort((a, b) => a.order - b.order)
 

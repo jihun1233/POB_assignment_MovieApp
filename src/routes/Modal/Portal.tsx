@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
 import reactDom from 'react-dom'
+import { ReactNode } from 'react'
 
 interface Props {
   children: ReactNode

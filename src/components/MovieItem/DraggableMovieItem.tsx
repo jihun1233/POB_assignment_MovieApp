@@ -1,10 +1,11 @@
+import posterNotFound from 'assets/posterNotFound.png'
 import { DragEvent, ForwardedRef, forwardRef, MouseEvent, SyntheticEvent, useEffect, useState } from 'react'
-import { useRecoil } from 'hooks/state'
 import { bookmarkListState, bookmarkModalState } from 'states/movie'
+import { useRecoil } from 'hooks/state'
 import { IMovie } from 'types/movie'
 import { AiFillStar } from 'react-icons/ai'
 import { cx } from 'styles'
-import posterNotFound from 'assets/posterNotFound.png'
+
 import styles from './MovieItem.module.scss'
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
   isBookmarked: boolean
 }
 
-const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<HTMLLIElement>): JSX.Element => {
+const MovieItem = forwardRef(({ movie, isBookmarked }: Props, ref: ForwardedRef<HTMLLIElement>) => {
   const [, setBookmarkModal] = useRecoil(bookmarkModalState)
   const [bookmarks, setBookmarks] = useRecoil(bookmarkListState)
   const [isDragOver, setIsDragOver] = useState(false)
